@@ -23,26 +23,39 @@ class App extends Component {
     e.preventDefault();
     console.log(this.state);
 
-    this.reset();
+    const contact = {
+      name: this.state.name,
+      id: this.idName,
+    };
+
+    this.setState((prevState) => {
+      return {
+        contacts: [...prevState.contacts, contact],
+      };
+    });
+
+    this.resetForm();
   };
 
-  reset = () => {
+  resetForm = () => {
     this.setState({ name: "" });
   };
 
   render() {
+    const { name } = this.state;
+    const { hendleSubmit, idName, hendleChange } = this;
     return (
       <div className="App">
         <h2>Phonebook</h2>
-        <form onSubmit={this.hendleSubmit}>
-          <label htmlFor={this.idName}>
+        <form onSubmit={hendleSubmit}>
+          <label htmlFor={idName}>
             Name
             <input
               type="text"
               name="name"
-              id={this.idName}
-              value={this.state.name}
-              onChange={this.hendleChange}
+              id={idName}
+              value={name}
+              onChange={hendleChange}
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
               required
@@ -52,6 +65,13 @@ class App extends Component {
         </form>
         <div>
           <h2>Contacts</h2>
+          <ul>
+            {this.state.contacts.map(({ id, name }) => (
+              <li key={id}>
+                <p>{name}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     );
