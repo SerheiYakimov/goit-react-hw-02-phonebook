@@ -33,7 +33,7 @@ export class Form extends Component {
   };
 
   resetForm = () => {
-    this.setState({ ...this.state });
+    this.setState({ name: "", number: "" });
   };
 
   render() {

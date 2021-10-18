@@ -2,6 +2,8 @@ import { Component } from "react";
 import "./App.css";
 
 import { Form } from "./components/Form/Form";
+import { Filter } from "./components/Filter/Filter";
+import { ContactList } from "./components/ContactList/ContactList";
 
 class App extends Component {
   state = {
@@ -40,28 +42,17 @@ class App extends Component {
   };
 
   render() {
+    const { filter } = this.state;
+    const { addNewContact, handleFilter, findContact } = this;
+
     return (
       <div className="App">
         <h2>Phonebook</h2>
-        <Form addNewContact={this.addNewContact} />
+        <Form addNewContact={addNewContact} />
         <div>
           <h2>Contacts</h2>
-          <p>Find contacts by name:</p>
-          <input
-            type="text"
-            name="filter"
-            value={this.state.filter}
-            onChange={this.handleFilter}
-          />
-          <ul>
-            {this.findContact().map(({ id, name, number }) => (
-              <li key={id}>
-                <p>
-                  {name}:<span>{number}</span>
-                </p>
-              </li>
-            ))}
-          </ul>
+          <Filter value={filter} onChange={handleFilter} />
+          <ContactList findContact={findContact} />
         </div>
       </div>
     );
