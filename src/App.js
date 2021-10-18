@@ -17,11 +17,15 @@ class App extends Component {
   };
 
   addNewContact = (contact) => {
-    this.setState((prevState) => {
-      return {
-        contacts: [...prevState.contacts, contact],
-      };
-    });
+    if (this.state.contacts.find((el) => el.name === contact.name)) {
+      alert(`${contact.name} is already in contacts`);
+    } else {
+      this.setState((prevState) => {
+        return {
+          contacts: [...prevState.contacts, contact],
+        };
+      });
+    }
   };
 
   handleFilter = (e) => {

@@ -1,6 +1,6 @@
-export function ContactListItem({ id, name, number }) {
+export function ContactListItem({ name, number }) {
   return (
-    <li key={id}>
+    <li>
       <p>
         {name}:<span>{number}</span>
       </p>
