@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { v4 as uuid } from "uuid";
 import PropsType from "prop-types";
+import s from "../Form/Form.module.css";
 
 export class Form extends Component {
   state = {
@@ -41,10 +42,11 @@ export class Form extends Component {
     const { idName, idNumber, handleChange, handleSubmit } = this;
     const { name, number } = this.state;
     return (
-      <form onSubmit={handleSubmit}>
-        <label htmlFor={idName}>
+      <form className={s.form} onSubmit={handleSubmit}>
+        <label className={s.label} htmlFor={idName}>
           Name
           <input
+            className={s.input}
             type="text"
             name="name"
             id={idName}
@@ -55,9 +57,10 @@ export class Form extends Component {
             required
           />
         </label>
-        <label htmlFor={idNumber}>
+        <label className={s.label} htmlFor={idNumber}>
           Number
           <input
+            className={s.input}
             type="tel"
             name="number"
             id={idNumber}
@@ -68,7 +71,9 @@ export class Form extends Component {
             required
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={s.button} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

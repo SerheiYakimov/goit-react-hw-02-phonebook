@@ -1,10 +1,11 @@
 import PropsType from "prop-types";
+import s from "../ContactList/ContactList.module.css";
 
 import { ContactListItem } from "../ContactListItem/ContactListItem";
 
 export function ContactList({ findContact, onDeleteContact }) {
   return (
-    <ul>
+    <ul className={s.list}>
       {findContact().map(({ id, name, number }) => (
         <ContactListItem
           key={id}

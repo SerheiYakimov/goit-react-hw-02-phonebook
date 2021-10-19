@@ -1,10 +1,17 @@
 import PropsType from "prop-types";
+import s from "../Filter/Filter.module.css";
 
 export function Filter({ value, onChange }) {
   return (
-    <div>
-      <h3>Find contacts by name:</h3>
-      <input type="text" name="filter" value={value} onChange={onChange} />
+    <div className={s.container}>
+      <h3 className={s.title}>Find contacts by name:</h3>
+      <input
+        type="text"
+        name="filter"
+        value={value}
+        onChange={onChange}
+        className={s.input}
+      />
     </div>
   );
 }

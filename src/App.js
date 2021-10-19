@@ -58,10 +58,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <h2>Phonebook</h2>
+          <h2 className="title">Phonebook</h2>
           <Form addNewContact={addNewContact} />
           <div>
-            <h2>Contacts</h2>
+            <h2 className="title">Contacts</h2>
             <Filter value={filter} onChange={handleFilter} />
             <ContactList
               findContact={findContact}
