@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { v4 as uuid } from "uuid";
+import PropsType from "prop-types";
 
 export class Form extends Component {
   state = {
@@ -72,3 +73,8 @@ export class Form extends Component {
     );
   }
 }
+
+Form.PropType = {
+  onSubmit: PropsType.func.isRequired,
+  onChange: PropsType.func.isRequired,
+};

@@ -57,15 +57,17 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h2>Phonebook</h2>
-        <Form addNewContact={addNewContact} />
-        <div>
-          <h2>Contacts</h2>
-          <Filter value={filter} onChange={handleFilter} />
-          <ContactList
-            findContact={findContact}
-            onDeleteContact={deleteContact}
-          />
+        <div className="container">
+          <h2>Phonebook</h2>
+          <Form addNewContact={addNewContact} />
+          <div>
+            <h2>Contacts</h2>
+            <Filter value={filter} onChange={handleFilter} />
+            <ContactList
+              findContact={findContact}
+              onDeleteContact={deleteContact}
+            />
+          </div>
         </div>
       </div>
     );
